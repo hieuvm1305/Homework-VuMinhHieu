@@ -14,7 +14,7 @@ function isSymetricList(arr) {
   if (arr.length === 1) return true;
   return arr.join("") === arr.reverse("").join("");
 }
-  /* let temp = [...arr].reverse();
+/* let temp = [...arr].reverse();
     for(let i = 0; i < arr.length; i++) {
         if(arr[i] !== temp[i]){
             return false;
@@ -53,6 +53,30 @@ function findSecondLargestNumber(numberList) {
   let arrTemp1 = arrTemp.filter((item) => item !== max);
   return Math.max(...arrTemp1);
 }
+//Cách 2
+function findSecondLargestNumber(numberList) {
+  let firstMax = 0;
+  let secondMax = 0;
+  if (numberList[0] < numberList[1]) {
+    firstMax = numberList[1];
+    secondMax = numberList[0];
+  } else {
+    firstMax = numberList[0];
+    secondMax = numberList[1];
+  }
+  // gán 2 giá trị firstMax và secondMax cho 2 biến.
+  for(let i = 2; i < numberList.length ; i++){
+    if(numberList[i] > firstMax){
+      secondMax = firstMax;
+      firstMax = numberList[i]
+    } else if(numberList[i] > secondMax){
+      secondMax = numberList[i];
+    }
+  }
+  return secondMax; 
+  //Đang trả về giá trị trùng 
+}
+
 console.log(findSecondLargestNumber([1, 2, 5, 5, 6, 6]));
 //Array-find-06
 function isPerfectSquare(a) {
