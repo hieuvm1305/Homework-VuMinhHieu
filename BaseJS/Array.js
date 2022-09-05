@@ -54,47 +54,38 @@ function findSecondLargestNumber(numberList){
 }
 console.log(findSecondLargestNumber([1,2,4,5,6]))
 //Array-find-06
-function findLastPerfectSquare(numberList){
-    let lastnum = 0;
-    for(let i of numberList){
-        if(isPerfectSquare(i)){
-            lastnum = i;
-        }
-    }
-    if(lastnum !== 0) {
-        return lastnum;
-    } return false;
-}
-console.log(findLastPerfectSquare([1,2,3,4,5,6,7,16,36,49]))
-//Array-Count-05
-function checkinArray(n, arr){
-    for(let i of arr){
-        if( i === n) {
+function isPerfectSquare(a) {
+    if( a <0 ) return false;
+    
+    for(let i = 1; i<= Math.round(a/2); i++) {
+        if(i * i === a) {
             return true;
         }
     }
     return false;
+    /* */
 }
+function findLastPerfectSquare(numberList){
+    let lastnum = 0;
+    numberList.forEach(item => {
+        if(isPerfectSquare(item)){
+            lastnum = item;
+        }
+    }) 
+    return (lastnum !== 0 ? lastnum : false);
+}
+console.log(findLastPerfectSquare([1,2,3,4,5,6,7,16,36,49]))
+console.log(findLastPerfectSquare([2,3]))
+
+//Array-Count-05
 function countNumbersNotInB(a, b){
     let count = 0;
-    //case array has same number.
-    let arrtemp = a.reduce((item,index) => {
-        if(item.indexOf(index) === -1){
-            //check indexof index, false return -1, push to new arr. 
-            item.push(index);
+    a.forEach(item => {
+        if(!b.includes(item)){
+            //check xem mảng b có phần tử của a hay không
+           count++;
         }
-        return item;
-    },[])
-    //loop check 
-    for(let i of arrtemp){
-        if(!checkinArray(i, b))
-        {count++;}
-    }
-    //arrtemp.forEach(item => {
-      //  if(!b.includes(item)){
-        //    count++;
-        //}
-    //})
-    return count++;
+    })
+    return count;
 }
-console.log(countNumbersNotInB([1,,1,3,2,3],[4,5]))
+console.log(countNumbersNotInB([1,3,1,3,2,3],[4,5]))
