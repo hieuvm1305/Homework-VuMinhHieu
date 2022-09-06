@@ -74,7 +74,7 @@ function findSecondLargestNumber(numberList) {
     }
   }
   return secondMax; 
-  //Đang trả về giá trị trùng 
+  //Đang trả về giá trị trùng nếu có 2 phần tử max trở lên 
 }
 
 console.log(findSecondLargestNumber([1, 2, 5, 5, 6, 6]));
