@@ -27,13 +27,13 @@ function callBackEvery(item){
 }
 function myEvery(myArray, callBack){
     for(let i of myArray){
-        if(callBack(i) == false){
+        if(!callBack(i)){
             return false;
         }
     }
     return true;
 }
-//ví dụ check mảng có tất cả các phần tử không chia hết cho 2 hay không
+//ví dụ check mảng có tất cả các phần tử chia hết cho 2 hay không
 console.log(myEvery([1,3,5,6],callBackEvery)); 
 //sort
 
@@ -75,6 +75,9 @@ function myFlat(myArray, depth){
         }
         arrTemp = resArr; //gán arrtemp bằng mảng kết quả để chạy tiếp
         resArr = []; //reset mảng kết quả
+        if(arrTemp.every(e => !Array.isArray(e))){
+            break;
+        }
         count--; 
     }
     return arrTemp;
