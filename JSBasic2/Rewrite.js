@@ -10,13 +10,13 @@ function myFindIndex(Array, elementLookFor){
 console.log(myFindIndex([1,2,3,4,5], 6));
 console.log(myFindIndex([1,2,3,4,5,5], 5));
 //map
-function callBackMap(item){
-    return item * 2;
+function callBackMap(currentValue, index, arr){
+    return currentValue * 2;
 }
 function myMap(myArray, callBack){
     let newArray = [];
-    for(let i of myArray){
-        newArray.push(callBack(i))
+    for(let i = 0; i < myArray.length; i++){
+        newArray.push(callBack(myArray[i], i, myArray))
     }
     return newArray;
 }
@@ -60,7 +60,7 @@ function quickSort(arr) {
 function mySort(myArray, callBack){
     return callBack(myArray);
 }
-console.log(mySort([1, 2, 3, 4, 5, 5],quickSort));
+console.log(mySort([1, 2, 3, 4, 5, 5], quickSort));
 //flat
 function myFlat(myArray, depth){
     let count = depth;
