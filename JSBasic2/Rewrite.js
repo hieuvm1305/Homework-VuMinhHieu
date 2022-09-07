@@ -27,7 +27,7 @@ function callBackEvery(item){
 }
 function myEvery(myArray, callBack){
     for(let i of myArray){
-        if(callBack(i)){
+        if(callBack(i) == false){
             return false;
         }
     }
