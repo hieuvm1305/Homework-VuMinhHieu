@@ -36,12 +36,31 @@ function myEvery(myArray, callBack){
 //ví dụ check mảng có tất cả các phần tử không chia hết cho 2 hay không
 console.log(myEvery([1,3,5,6],callBackEvery)); 
 //sort
-function callBackSort(){
 
+function quickSort(arr) {
+    
+    if(arr.length < 2) return arr;
+    //lấy phần tử cuối của 'arr' làm 'pivot'
+    const pivot = arr[arr.length - 1];
+
+    const leftArr = [];
+    const rightArr = [];
+    
+    let currentItem;
+    for(let i = 0; i < arr.length -1 ; i++) {
+        currentItem = arr[i];
+        if(currentItem < pivot) {
+            leftArr.push(currentItem);
+        } else {
+            rightArr.push(currentItem);
+        }
+    }
+    return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 }
 function mySort(myArray, callBack){
-
+    return callBack(myArray);
 }
+console.log(mySort([1, 2, 3, 4, 5, 5],quickSort));
 //flat
 function myFlat(myArray, depth){
     let count = depth;
