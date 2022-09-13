@@ -12,7 +12,7 @@ class Queue {
             callback();
         } else{
             this.queue.push(callback);
-            setTimeout(callback, this.delay * this.queue.indexOf(callback));
+            setTimeout(callback, this.delay); //setTimeout(callback, this.delay * this.queue.indexOf(callback));
         }
     }
 }
@@ -20,6 +20,10 @@ let test = new Queue;
 test.add(() => console.log('hello'));
 test.add(() => console.log('hello 2'));
 test.add(() => console.log('hello 3'));
+// nếu add từng callback thì dùng this.delay, nếu dùng nhiều lệnh add cùng một lúc thì dùng timeout = this.delay * this.queue.indexof(callback).
+
+
+
 //cau 2
 
 const api = 'https://api.github.com/search/repositories?q=';
