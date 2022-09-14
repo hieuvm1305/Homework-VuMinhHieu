@@ -65,3 +65,37 @@ const getApi = (array) => {
   }
 };
 getApi(array);
+
+//Câu 3
+const randomPromise = new Promise((resolve, reject) => {
+  let count = 0;
+  for (let i = 0; i < 5; i++) {
+    let res = parseInt(Math.random() * 100);
+    if(res % 2 == 0){
+      resolve(res);
+      count = 1;
+      break;
+    }
+  }
+  if(count == 0){
+    reject('Not Find');
+  }
+});
+randomPromise.then(value => console.log(value), error => console.log(error))
+
+ /*
+ const ar = [1, 3, 7, 5, 9]
+const randomPromise = new Promise((resolve, reject) => {
+  let count = 0;
+  for (let i = 0; i < 5; i++) {
+    if(ar[i] % 2 == 0){
+      resolve(res);
+      count = 1;
+      break;
+    }
+  }
+  if(count == 0){
+    reject('Not Find');
+  }
+});
+randomPromise.then(value => console.log(value), error => console.log(error))*/
