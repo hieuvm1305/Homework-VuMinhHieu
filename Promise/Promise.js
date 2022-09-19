@@ -152,27 +152,25 @@ test();
 //Throttle: Mỗi khoảng thời gian mới gọi hàm
 let wait = false;
 const throttle = (callback, timeout) => {
-    if (wait) return;
-    wait = true;
-    setTimeout(() => {
-      callback();
-      wait = false;
-    }, timeout);
-}
-const test1 = throttle(() => console.log("object"), 500)
-console.log(test1)
+  if (wait) return;
+  wait = true;
+  setTimeout(() => {
+    callback();
+    wait = false;
+  }, timeout);
+};
+const test1 = throttle(() => console.log("object"), 500);
+console.log(test1);
 
 //Stole from Internet
 function throttle(func, delay) {
   let lastCall = 0;
-
-  return function (...args) {
-      const now = new Date().getTime();
-
-      if (now - lastCall < delay) {
-          return;
-      }
-      lastCall = now;
-      return func(...args);
+  return function () {
+    const now = new Date().getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return func();
   };
 }
