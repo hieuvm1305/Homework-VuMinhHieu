@@ -22,7 +22,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container" style="max-width:800px">
+    <div class="container" style="max-width: 800px">
       <div class="header">
         <h3>Simple Todo App</h3>
         <input
@@ -39,38 +39,37 @@
               id="title"
               class="form-input form-control"
               placeholder="Add Todo"
+              required
             />
           </div>
           <div class="col-md-3">
-            <input type="date" id="deadline" class="form-input form-control" />
+            <input type="date" id="deadline" class="form-input form-control" required/>
           </div>
           <div class="col-md-3">
-            <select class="form-input form-select" id="status">
+            <select class="form-input form-select" id="status" required>
               <option selected>ToDo</option>
               <option>Done</option>
               <option>In process</option>
             </select>
           </div>
           <div class="col-12">
-            <button id="btn-add" class="btn btn-primary">
-              Add ToDo
+            <button id="btn-add" class="btn btn-primary">Add ToDo</button>
+            <button id="btn-edit" class="btn btn-primary" style="display:none;">
+              Update
             </button>
-            <button class="btn btn-primary">Update</button>
           </div>
-        </form>
-        <div class="clear" style="clear: both"></div>
-      </div>
-      <div class="body">
-        <div class="row">
-            <div class="col">Title</div>
-            <div class="col">Deadline</div>
-            <div class="col">Status</div>
-            <div class="col">Action</div>
         </div>
-        <div class="todoList"></div>
+      </form>
+      <div class="body">
+        <div class="row headlist">
+          <div class="col">Title</div>
+          <div class="col">Deadline</div>
+          <div class="col">Status</div>
+          <div class="col">Action</div>
+        </div>
+        <div class="todolist"></div>
       </div>
     </div>
-    
     <script src="index.js"></script>
   </body>
 </html>
