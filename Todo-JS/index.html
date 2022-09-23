@@ -25,13 +25,29 @@
     <div class="container" style="max-width: 800px">
       <div class="header">
         <h3>Simple Todo App</h3>
-        <input
+        <div class="row g-3">
+          <h3>Search</h3>
+          <div class="col-md-6">
+            <input
           type="text"
           class="search-input form-control"
           id="search-input"
           placeholder="Search"
           onchange="search()"
         />
+          </div>
+          <div class="col-md-3">
+            <input type="date" id="deadline" class="form-input form-control" required/>
+          </div>
+          <div class="col-md-3">
+            <select class="form-input form-select" id="status" required >
+              <option>--Choose Status--</option>
+              <option>ToDo</option>
+              <option>Done</option>
+              <option>In process</option>
+            </select>
+          </div>
+        </div>
         <form class="row g-3">
           <div class="col-md-6">
             <input
@@ -46,8 +62,9 @@
             <input type="date" id="deadline" class="form-input form-control" required/>
           </div>
           <div class="col-md-3">
-            <select class="form-input form-select" id="status" required>
-              <option selected>ToDo</option>
+            <select class="form-input form-select" id="status" required >
+              <option>--Choose Status--</option>
+              <option>ToDo</option>
               <option>Done</option>
               <option>In process</option>
             </select>

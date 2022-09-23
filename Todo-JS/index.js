@@ -102,10 +102,11 @@ function color() {
 
 //Tìm kiếm
 function search() {
+  
   let params = searchInput.value;
   if (params.trim() != "") {
     let html = ``;
-    let itemShow = document.querySelector(".todoList");
+    let itemShow = document.querySelector(".todolist");
     todoList.forEach((data, index) => {
       if (data.todo == params) {
         html += `
@@ -119,8 +120,9 @@ function search() {
           </div>
         </div>
         `;
+        itemShow.innerHTML = html;
+        color();
       }
-      itemShow.innerHTML = html;
     });
-  } else showTodoList();
+  }
 }
